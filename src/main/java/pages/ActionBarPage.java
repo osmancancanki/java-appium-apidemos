@@ -12,9 +12,12 @@ public class ActionBarPage extends BasePage {
     public void firstScenario() {
         //scenario steps should be seperated step by step
         //locators must be created out of method and called when needed
+        //create spesific method to check tabs with array (
+        ///hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.app.ActionBar.Tab[i])
         driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[3]").click();
         driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[1]").click();
         driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[2]").click();
+        driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.TextView").isDisplayed();
         driver.findElementById("com.hmh.api:id/btn_toggle_tabs").click();
         driver.findElementById("com.hmh.api:id/btn_add_tab").click();
         driver.findElementById("com.hmh.api:id/btn_add_tab").click();
