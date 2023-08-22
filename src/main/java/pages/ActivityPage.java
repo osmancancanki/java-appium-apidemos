@@ -2,6 +2,7 @@ package pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 
 public class ActivityPage extends BasePage {
 
@@ -9,19 +10,25 @@ public class ActivityPage extends BasePage {
         super(driver);
     }
 
+    By appMenuItem = By.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[3]");
+    By activityMenuItem = By.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[2]");
+    By customTitleMenuItem = By.xpath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[3]");
+    By leftEditInput = By.id("com.hmh.api:id/left_text_edit");
+    By leftEditButton = By.id("com.hmh.api:id/left_text_button");
+    By leftTitle = By.id("com.hmh.api:id/left_text");
+    By rightEditInput = By.id("com.hmh.api:id/right_text_edit");
+    By rightEditButton = By.id("com.hmh.api:id/right_text_button");
+    By rightTitle = By.id("com.hmh.api:id/right_text");
+
     public void secondScenario() {
-        driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[3]").click();
-        driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[2]").click();
-        driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ListView/android.widget.TextView[3]").click();
-        driver.findElementById("com.hmh.api:id/left_text_edit").sendKeys("?");//sendKeys(Textbox)
-        driver.findElementById("com.hmh.api:id/left_text_button").click();
-        String leftTextExpected = "Left is best?";
-        String leftTextActual = driver.findElementById("com.hmh.api:id/left_text").getText();//getText(Navigation)
-        Assertions.assertEquals(leftTextExpected, leftTextActual);
-        driver.findElementById("com.hmh.api:id/right_text_edit").sendKeys("?");//sendKeys(Textbox)
-        driver.findElementById("com.hmh.api:id/right_text_button").click();
-        String rightTextExpected = "Right is always right?";
-        String rightTextActual = driver.findElementById("com.hmh.api:id/right_text").getText();//getText(Navigation)
-        Assertions.assertEquals(rightTextExpected, rightTextActual);
+        clickToElement(appMenuItem);
+        clickToElement(activityMenuItem);
+        clickToElement(customTitleMenuItem);
+        sendKeysToElement(leftEditInput, "?");
+        clickToElement(leftEditButton);
+        assertionForElement(leftTitle, "Left is best?");
+        sendKeysToElement(rightEditInput, "?");
+        clickToElement(rightEditButton);
+        assertionForElement(rightTitle, "Right is always right?");
     }
 }
