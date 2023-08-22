@@ -9,6 +9,8 @@ public class ActivityPageTest extends BaseTest{
     @Test
     public void secondTest(){
         activityPage = new ActivityPage(driver);
-        activityPage.secondScenario();
+        activityPage.goToActivity();
+        activityPage.checkDefaultTitles();
+        activityPage.changeTitlesAndCheck();
     }
 }
