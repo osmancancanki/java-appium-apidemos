@@ -7,8 +7,10 @@ public class ActionBarTest extends BaseTest{
     ActionBarPage actionBarPage;
 
     @Test
-    public void firstTest(){
+    public void actionBarTest(){
         actionBarPage = new ActionBarPage(driver);
-        actionBarPage.firstScenario();
+        actionBarPage.goToActionBar();
+        actionBarPage.checkToggleModeIsOff();
+        actionBarPage.testBarActions();
     }
 }

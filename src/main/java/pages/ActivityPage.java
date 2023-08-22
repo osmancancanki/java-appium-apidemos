@@ -20,10 +20,18 @@ public class ActivityPage extends BasePage {
     By rightEditButton = By.id("com.hmh.api:id/right_text_button");
     By rightTitle = By.id("com.hmh.api:id/right_text");
 
-    public void secondScenario() {
+    public void goToActivity() {
         clickToElement(appMenuItem);
         clickToElement(activityMenuItem);
+    }
+
+    public void checkDefaultTitles() {
         clickToElement(customTitleMenuItem);
+        assertionForElement(leftTitle, "Left is best");
+        assertionForElement(rightTitle, "Right is always right");
+    }
+
+    public void changeTitlesAndCheck() {
         sendKeysToElement(leftEditInput, "?");
         clickToElement(leftEditButton);
         assertionForElement(leftTitle, "Left is best?");

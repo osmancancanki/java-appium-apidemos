@@ -18,15 +18,19 @@ public class ActionBarPage extends BasePage {
     By removeTabButton = By.id("com.hmh.api:id/btn_remove_tab");
     By removeAllTabsButton = By.id("com.hmh.api:id/btn_remove_all_tabs");
 
-
-    public void firstScenario() {
-        //scenario steps should be seperated step by step
-        //create spesific method to check tabs with array (
-        ///hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.app.ActionBar.Tab[i])
+    public void goToActionBar() {
         clickToElement(appMenuItem);
         clickToElement(actionBarMenuItem);
+    }
+
+    public void checkToggleModeIsOff() {
         clickToElement(actionBarTabMenuItem);
         isElementDisplayed(currentTab);
+    }
+
+    public void testBarActions() {
+        //create spesific method to check tabs with array (
+        //(/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.app.ActionBar.Tab[i])
         clickToElement(toggleTabButton);
         clickToElement(addTabButton);
         clickToElement(removeTabButton);
